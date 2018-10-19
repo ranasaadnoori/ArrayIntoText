@@ -1,0 +1,84 @@
+<html>
+</head>
+<body>
+<h2>JavaScript Array of Number To Digit Names</h2>
+<form name="form1">
+     <b> input number of elements in array:<b> <input type="integer" name="name" id="name1"/> <br><br>
+     <b> input elements in array:<b> <input type="integer" name="name2" id="name2"/> <br><br>
+                <input type="button" value="Add Into Array"
+                       onclick="insert(this.form.name.value,this.form.name2.value)"/>
+                <input type="button" value="Show Array"
+                       onclick="show();"/>
+</form>
+<p id="demo"></p>
+<script>
+    var arrayX;
+    var array=new Array(arrayX);
+    var arrayIndex=0;
+    var string;
+    var string1;
+    var string2;
+    var string3;
+    
+    function insert(val1, val2){
+    	arrayX = val1; //document.getElementById("name2").value
+        if ( (isNaN(val2)) || (val2 > 9)) { 
+            alert("this is not a digit or Number larger than 9");
+            return (false);
+     }
+    
+           if ( arrayIndex  >= arrayX ){
+       alert("End of array!");
+       return (false);
+    }
+       else {
+         
+        array[arrayIndex] = val2; //document.getElementById("name1").value;
+        document.getElementById('name2').value = '';
+                arrayIndex++; 
+    }
+    }
+
+
+    function show(){
+    	 var z= myNumText();
+    	 string3 ="["+ array +"]";
+    	 string = string3 + ">>>>>>>" + z
+
+ document.getElementById("demo").innerHTML = string;
+ 
+}
+
+function myNumText(){
+
+string1="[";
+for (var i=0; i< array.length;i++)
+     {
+       if (myFunction(array[i])) {
+         string1+= "'" + myFunction(array[i]) + "'" + "," ;}
+     else{
+          string1+= ("'" + "more than 2 digit" + "'" + "," );
+     }
+         
+    }
+   var sL=string1.length;
+   string2 = string1.slice(0,sL-1) + "]";
+    return (string2);	
+}
+
+function myFunction(p1) {
+     if (p1==1 ) {return ("one")}
+     if (p1==2 ) {return ("two")}
+     if (p1==3 ) {return ("Three")}
+     if (p1==4 ) {return ("Four")}
+     if (p1==5 ) {return ("Five")}
+     if (p1==6 ) {return ("Six")}
+     if (p1==7 ) {return ("Seven")}
+     if (p1==8 ) {return ("Eight")}
+     if (p1==9 ) {return ("Nine")}
+     if (p1==0 ) {return ("zero")}    
+     }
+
+</script>
+</body>
+</html>
